@@ -1,0 +1,10 @@
+{
+  "name": "wesite-seed",
+  "version": "0.0.1",
+  "description": "Wesite seed project",
+  "dependencies": {
+    "jquery": "*",
+    "jquery.lazyload": "*",
+    "swiper": "*"
+  }
+}

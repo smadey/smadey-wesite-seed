@@ -1,0 +1,87 @@
+* {
+    @include box-sizing(border-box);
+    margin: 0;
+    padding: 0;
+}
+
+html, body, .view {
+    height: 100%;
+}
+
+.phone {
+    background: url('../img/phone-bg.png') center center no-repeat;
+    height: 810px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 380px;
+}
+.phone-inner {
+    background-color: white;
+    border: 4px solid #22272d;
+    height: 576px;
+    left: 27px;
+    overflow: hidden;
+    padding-top: 64px;
+    position: absolute;
+    top: 104px;
+    width: 328px;
+}
+
+@media screen and (min-height: 600px) {
+    .phone {
+        top: -75px;
+    }
+}
+@media screen and (min-height: 810px) {
+    .phone {
+        top: 0;
+    }
+}
+@media screen and (min-height: 1000px) {
+    .phone {
+        top: 100px;
+    }
+}
+
+.swiper-container {
+    @include backface-visibility(hidden);
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    z-index:1;
+}
+
+.swiper-wrapper {
+    @include box-sizing(content-box);
+    position:relative;
+    @include transform(translate3d(0px, 0, 0));
+    @include transition-duration(0s);
+    -webkit-transition-property:-webkit-transform, left, top;
+    -moz-transition-property:-moz-transform, left, top;
+    -ms-transition-property:-ms-transform, left, top;
+    -o-transition-property:-o-transform, left, top;
+    transition-property:transform, left, top;
+    @include transition-timing-function(ease);
+    width:100%;
+}
+
+.swiper-free-mode > .swiper-wrapper {
+    margin: 0 auto;
+    @include transition-timing-function(ease-out);
+}
+
+.swiper-slide {
+    @include box-sizing(content-box);
+    float: left;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+    -ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+    -ms-touch-action: pan-x;
+}

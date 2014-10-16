@@ -1,4 +1,4 @@
 wesite
 ======
 
-微网站
+We site seed
