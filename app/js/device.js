@@ -61,6 +61,7 @@ $(function() {
     };
 
     var type = getBrowserType(navigator.userAgent);
+
     var $view = $('.view');
 
     if(type == 'desktop') {
@@ -68,9 +69,8 @@ $(function() {
     }
     else if(type == 'phone') {
         var previousOrientation = window.orientation;
-
-        var initWidth = $view.parent().width();
-        var initHeight = $view.parent().height();
+        var initWidth = window.innerWidth;
+        var initHeight = window.innerHeight;
         var transform;
 
         // for full height and align center
@@ -99,23 +99,25 @@ $(function() {
 
         var checkOrientation = function() {
             if(window.orientation !== previousOrientation){
-                $timeout(function() {
-                    previousOrientation = window.orientation;
+                previousOrientation = window.orientation;
 
-                    if(previousOrientation === 90 || previousOrientation === -90) {
-                        transform = 'scale(' + window.innerHeight / initHeight + ')';
-                    }
-                    else {
-                        transform = '';
-                    }
+                if(previousOrientation === 90 || previousOrientation === -90) {
+                    $view.height(initHeight);
+                    transform = 'scale(' + window.innerHeight / initHeight + ')';
+                }
+                else {
+                    $view.height('100%');
+                    transform = '';
+                }
 
-                    setTransform($view, transform);
-                }, 1000);
+                setTransform($view, transform);
             }
         };
 
+        // window.addEventListener('orientationchange', checkOrientation, false);
         window.addEventListener('resize', checkOrientation, false);
-        window.addEventListener('orientationchange', checkOrientation, false);
+
+        // setInterval(checkOrientation, 2000);
     }
 
 

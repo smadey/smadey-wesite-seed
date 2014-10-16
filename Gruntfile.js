@@ -24,8 +24,7 @@ module.exports = function(grunt) {
 
         sass: {
             options: {
-                cacheLocation: 'app/css/.sass-cache',
-                sourcemap: 'none'
+                cacheLocation: 'app/css/.sass-cache'
             },
             dev: {
                 options: {

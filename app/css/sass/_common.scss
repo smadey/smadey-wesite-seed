@@ -8,6 +8,10 @@ html, body, .view {
     height: 100%;
 }
 
+body {
+    overflow: hidden;
+}
+
 .phone {
     background: url('../img/phone-bg.png') center center no-repeat;
     height: 810px;
@@ -16,8 +20,10 @@ html, body, .view {
     position: relative;
     width: 380px;
 }
+
 .phone-inner {
-    background-color: white;
+    background: white url('../img/phone-header.png') 0 0 no-repeat;
+    @include background-size(320px 64px);
     border: 4px solid #22272d;
     height: 576px;
     left: 27px;
